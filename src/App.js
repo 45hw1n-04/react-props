@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./Header";
+import Name from "./name";
 
 function App() {
+  const names = [{
+    name:"Ashwin",
+    class: "red",
+  },
+  {
+    name:"Srini",
+    class: "green",
+  },
+  {
+    name:"Yelloe",
+    class: "yello",
+  },]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <Header />
       </header>
-    </div>
+
+      <section>
+        {/* Passing props to single component */}
+        {/* <Name name="Ashwin" class="red" />
+        <Name name="Srini" class="green" />
+        <Name name="Saravanan" class="yello" /> */}
+
+        {/* Passing props using dynamic rendering and array of object mapping*/}
+        {
+          names.map((items, idx) => {
+            return (
+              // <p>{items.name} , {items.class}</p> To see whats in item
+              <Name name={items.name} class={items.class} />
+            )
+          })
+        }
+      </section>
+    </>
   );
 }
 
